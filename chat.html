@@ -115,20 +115,20 @@
 
     <script>
         function selectContact(contactName) {
-            // Обновляем заголовок чата
+            
             document.getElementById('chatHeader').textContent = contactName;
 
-            // Снимаем класс 'active' со всех контактов
+            
             const contacts = document.querySelectorAll('.contact-list li');
             contacts.forEach(contact => contact.classList.remove('active'));
 
-            // Устанавливаем класс 'active' на выбранный контакт
+            
             const selectedContact = Array.from(contacts).find(contact => contact.textContent === contactName);
             if (selectedContact) {
                 selectedContact.classList.add('active');
             }
 
-            // Очищаем сообщения чата (это место для загрузки истории сообщений с выбранным контактом)
+            
             const chatMessages = document.getElementById('chatMessages');
             chatMessages.innerHTML = '';
         }
@@ -142,10 +142,10 @@
                 newMessage.innerHTML = '<strong>Вы:</strong> ' + messageInput.value;
                 chatMessages.appendChild(newMessage);
 
-                // Прокручиваем чат вниз, чтобы показать последнее сообщение
+                
                 chatMessages.scrollTop = chatMessages.scrollHeight;
 
-                // Очищаем поле ввода
+                
                 messageInput.value = '';
             }
         }
