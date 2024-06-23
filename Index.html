@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepMessage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #4B0082;
+    padding: 20px 0;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li .register-button {
+    background: #6A5ACD;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#hero {
+    background: rgba(75, 0, 130, 0.8);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-register-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: #6A5ACD;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#about, #features, #testimonials, #download {
+    background: white;
+    padding: 50px 0;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#features .feature {
+    margin: 20px 0;
+}
+
+#testimonials .testimonial {
+    background: rgba(75, 0, 130, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid #4B0082;
+}
+
+#download .download-register-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: #6A5ACD;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background: #4B0082;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+</style>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>StepMessage</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Лучший мессенджер для общения</h2>
+            <p>Быстрый, безопасный и простой в использовании.</p>
+            <a href="register.html" class="hero-register-button">Регистрация</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>О нас</h2>
+            <p>MyMessenger - это платформа, созданная для вашего удобства и безопасности. Мы предлагаем быстрые и надежные сообщения с высоким уровнем конфиденциальности.</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Особенности</h2>
+            <div class="feature">
+                <h3>Безопасность</h3>
+                <p>Все сообщения шифруются для защиты ваших данных.</p>
+            </div>
+            <div class="feature">
+                <h3>Скорость</h3>
+                <p>Наши серверы обеспечивают мгновенную доставку сообщений.</p>
+            </div>
+            <div class="feature">
+                <h3>Простота</h3>
+                <p>Интуитивно понятный интерфейс для легкого общения.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <div class="testimonial">
+                <p>"StepMessage изменил мой способ общения. Я больше не беспокоюсь о безопасности своих данных." - Иван</p>
+            </div>
+            <div class="testimonial">
+                <p>"Очень быстрый и удобный мессенджер. Рекомендую!" - Анна</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 StepMessage. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

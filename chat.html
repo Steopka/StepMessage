@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чаты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f5f3ff;
+            color: #4b0082;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #d3c4f0;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .sidebar h2 {
+            margin: 0;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .contact-list {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+            overflow-y: auto;
+        }
+        .contact-list li {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .contact-list li:hover {
+            background-color: #c1b2d6;
+        }
+        .contact-list li.active {
+            background-color: #6a0dad;
+            color: white;
+        }
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background-color: #d3c4f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #ffffff;
+        }
+        .chat-messages p {
+            padding: 10px;
+            border-bottom: 1px solid #d3c4f0;
+        }
+        .chat-input {
+            padding: 10px;
+            background-color: #d3c4f0;
+            display: flex;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .chat-input button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #6a0dad;
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #4b0082;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>StepMessage</h2>
+        <ul class="contact-list">
+            <li class="active" onclick="selectContact('Ктото1')">Ктото1</li>
+            <li onclick="selectContact('Ктото2')">Ктото2</li>
+            <li onclick="selectContact('Ктото3')">Ктото3</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="chat-header">
+            <h2 id="chatHeader">Ктото1</h2>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <p><strong>Ктото1:</strong> Привет!</p>
+            <p><strong>Вы:</strong> Привет, как дела?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Введите сообщение...">
+            <button onclick="sendMessage()">Отправить</button>
+        </div>
+    </div>
+
+    <script>
+        function selectContact(contactName) {
+            // Обновляем заголовок чата
+            document.getElementById('chatHeader').textContent = contactName;
+
+            // Снимаем класс 'active' со всех контактов
+            const contacts = document.querySelectorAll('.contact-list li');
+            contacts.forEach(contact => contact.classList.remove('active'));
+
+            // Устанавливаем класс 'active' на выбранный контакт
+            const selectedContact = Array.from(contacts).find(contact => contact.textContent === contactName);
+            if (selectedContact) {
+                selectedContact.classList.add('active');
+            }
+
+            // Очищаем сообщения чата (это место для загрузки истории сообщений с выбранным контактом)
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const chatMessages = document.getElementById('chatMessages');
+
+            if (messageInput.value.trim() !== '') {
+                const newMessage = document.createElement('p');
+                newMessage.innerHTML = '<strong>Вы:</strong> ' + messageInput.value;
+                chatMessages.appendChild(newMessage);
+
+                // Прокручиваем чат вниз, чтобы показать последнее сообщение
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Очищаем поле ввода
+                messageInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
